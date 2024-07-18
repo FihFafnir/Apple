@@ -7,6 +7,20 @@ public class Main {
         Menu menu = new Menu();
         int selectedOption = menu.choice();
         while (selectedOption != Menu.EXIT_CODE) {
+            switch (selectedOption) {
+                case 1:
+                    menu.addProduct();
+                    break;
+                case 2:
+                    menu.listProducts();
+                    break;
+                case 3:
+                    menu.removeProduct();
+                    break;
+                case 4:
+                    menu.searchProduct();
+                    break;
+            }
             selectedOption = menu.choice();
         }
     }

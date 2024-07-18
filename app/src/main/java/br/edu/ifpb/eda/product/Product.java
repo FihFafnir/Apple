@@ -1,25 +1,27 @@
 package br.edu.ifpb.eda.product;
 
+import br.edu.ifpb.eda.utils.NormalizerProductName;
+
 public class Product {
     public final String name;
     private int amount = 0;
-    public Product(String name) {
-        this.name = name;
-    }
+
     public Product(String name, int amount) {
-        this.name = name;
+        this.name = NormalizerProductName.normalize(name);
         this.amount = amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void updateAmount(int deltaAmount) {
+        this.amount += deltaAmount;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj.getClass() == String.class)
-            return name.equals(obj);
-        return super.equals(obj);
+    public int getAmount() {
+        return this.amount;
+    }
+
+    public boolean checkSameName(String anotherName) {
+        String normalizedAnotherName = NormalizerProductName.normalize(anotherName);
+        return this.name.equalsIgnoreCase(normalizedAnotherName);
     }
 
     @Override
@@ -27,7 +29,7 @@ public class Product {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Nome: ");
         stringBuilder.append(name);
-        stringBuilder.append("\nQuantidade: ");
+        stringBuilder.append(" | Quantidade: ");
         stringBuilder.append(amount);
         return stringBuilder.toString();
     }

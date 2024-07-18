@@ -1,6 +1,5 @@
 package br.edu.ifpb.eda.linkedlist;
 
-import br.edu.ifpb.eda.product.Product;
 public class Node<T> {
     protected T value;
     protected Node<T> next;

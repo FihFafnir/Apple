@@ -1,6 +1,6 @@
 package br.edu.ifpb.eda.linkedlist;
 
-public interface ILinkedList<T> {
+public interface ILinkedList<T> extends Iterable<T> {
     public boolean isEmpty();
 
     public int size();

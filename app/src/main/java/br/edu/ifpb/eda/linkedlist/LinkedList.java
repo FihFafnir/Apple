@@ -1,5 +1,9 @@
 package br.edu.ifpb.eda.linkedlist;
 
+import java.util.Iterator;
+// import java.util.Objects;
+// import java.util.function.Consumer;
+
 public class LinkedList<T> implements ILinkedList<T> {
     private Node<T> root;
     private int size;
@@ -107,6 +111,11 @@ public class LinkedList<T> implements ILinkedList<T> {
     @Override
     public T remove(int index) throws IndexOutOfBoundsException {
         return remove(getNode(index));
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator<T>(this.root);
     }
 
     @Override
